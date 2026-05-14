@@ -55,17 +55,18 @@ class ContactBook():
         if contact_name == "":
             print("Name can't be empty!")
             return
-        in_contact = False
+        in_contacts = False
 
         for name, number in contacts.items():
             if contact_name == name:
                 in_contacts = True
 
-        if in_contacts == True:
+        if in_contacts == True: 
             new_name = input("Enter new name: ").strip()
             if new_name != "":
                 new_number = input("Enter new number: ").strip()
                 if new_number != "":
+                    del contacts[contact_name]
                     contacts[new_name] = new_number
                     save(contacts)
                     print("<<-Contact Updated->>")
